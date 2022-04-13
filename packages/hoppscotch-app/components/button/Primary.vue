@@ -84,7 +84,7 @@ interface Props {
   rounded: boolean
   gradient: boolean
   outline: boolean
-  shortcut: Array<string>
+  shortcut: string[]
   type: string
 }
 
