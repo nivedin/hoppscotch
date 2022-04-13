@@ -342,7 +342,7 @@ const deleteHistory = (entry: HistoryEntry) => {
 }
 
 const toggleStar = (entry: HistoryEntry) => {
-  //History entry type specified because function does not know the type
+  // History entry type specified because function does not know the type
   if (props.page === "rest")
     toggleRESTHistoryEntryStar(entry as RESTHistoryEntry)
   else toggleGraphqlHistoryEntryStar(entry as GQLHistoryEntry)
