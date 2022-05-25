@@ -229,7 +229,7 @@
                           <div class="flex flex-1 p-3 font-semibold">
                             {{ t("shortcodes.method") }}
                           </div>
-                          <div class="flex flex-1 p-3 font-semibold">
+                          <div class="flex flex-1 min-w-xs p-3 font-semibold">
                             {{ t("shortcodes.url") }}
                           </div>
                           <div class="flex flex-1 p-3 font-semibold">
