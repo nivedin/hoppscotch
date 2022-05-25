@@ -1,6 +1,6 @@
 <template>
   <div
-    class="table-row-groups lg:flex block my-6 lg:my-0 w-full border lg:border-0 divide-y lg:divide-y-0 lg:divide-x divide-dividerLight border-dividerLight"
+    class="table-row-groups lg:flex block my-6 lg:my-0 first:mt-0 w-full border lg:border-0 divide-y lg:divide-y-0 lg:divide-x divide-dividerLight border-dividerLight"
   >
     <div
       class="table-column font-mono text-tiny"
@@ -15,22 +15,18 @@
     >
       {{ parseShortcodeRequest.method }}
     </div>
-    <div class="table-column" :data-label="t('shortcodes.url')">
-      <div class="max-w-50 lg:max-w-90 truncate">
+    <div class="table-column min-w-xs" :data-label="t('shortcodes.url')">
+      <span class="max-w-50 lg:max-w-80 truncate">
         {{ parseShortcodeRequest.endpoint }}
-      </div>
+      </span>
     </div>
-    <div
-      ref="timeStampRef"
-      class="table-column"
-      :data-label="t('shortcodes.created_on')"
-    >
+    <div class="table-column" :data-label="t('shortcodes.created_on')">
       <span v-tippy="{ theme: 'tooltip' }" :title="timeStamp">
         {{ dateStamp }}
       </span>
     </div>
     <div
-      class="flex flex-1 items-center justify-center px-3"
+      class="flex flex-1 items-center justify-center px-3 py-1"
       :data-label="t('shortcodes.actions')"
     >
       <SmartAnchor
@@ -94,7 +90,6 @@ const requestMethodLabels = {
   default: "text-gray-500",
 } as const
 
-const timeStampRef = ref()
 const copyIconRefs = ref<"copy" | "check">("copy")
 
 const parseShortcodeRequest = computed(() =>
@@ -126,7 +121,7 @@ const copyShortcode = (codeID: string) => {
 
 <style lang="scss">
 .table-column {
-  @apply flex flex-1 items-center justify-between px-3 py-3;
+  @apply flex flex-1 items-center justify-between p-3;
 }
 
 .table-row-groups {
