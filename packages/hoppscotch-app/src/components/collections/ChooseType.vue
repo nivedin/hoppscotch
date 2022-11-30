@@ -79,15 +79,13 @@
 import IconUsers from "~icons/lucide/users"
 import IconDone from "~icons/lucide/check"
 import { ref, watch } from "vue"
-import { GetMyTeamsQuery, Team } from "~/helpers/backend/graphql"
+import { Team } from "~/helpers/backend/graphql"
 import { currentUserInfo$ } from "~/helpers/teams/BackendUserInfo"
 import TeamListAdapter from "~/helpers/teams/TeamListAdapter"
 import { useReadonlyStream } from "@composables/stream"
 import { onLoggedIn } from "@composables/auth"
 import { useI18n } from "@composables/i18n"
 import { useLocalState } from "~/newstore/localstate"
-
-type TeamData = GetMyTeamsQuery["myTeams"][number]
 
 type CollectionTabs = "my-collections" | "team-collections"
 
@@ -105,8 +103,8 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (e: "update-collection-type", tabID: string): void
-  (e: "update-selected-team", team: TeamData | undefined): void
+  (e: "update-collection-type", tabID: CollectionTabs): void
+  (e: "update-selected-team", team: Team | undefined): void
 }>()
 
 const currentUser = useReadonlyStream(currentUserInfo$, null)
